@@ -1,3 +1,6 @@
+import { APIAccessMode } from "../../lib/APIAccessInfo"
+import { apiAccessInfo } from "../../lib/stores"
+
 export const APIAccessPrompt: Component = function () {
     return (
         <div>
@@ -27,7 +30,10 @@ export const APIAccessPrompt: Component = function () {
             <div>
                 <button
                     on:click={() => {
-                        alert("WIP")
+                        apiAccessInfo.mode = APIAccessMode.Extension
+                        location.reload()
+                        // If you are not me and you're reading this and might know how to get this to update without reloading, please consider opening a PR. If you don't want to that's fine though.
+                        // If you are future me, past me says hello and is very confused about why this happens.
                     }}
                 >
                     Use

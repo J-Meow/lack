@@ -2,18 +2,9 @@ import "dreamland"
 import { Landing } from "./pages/landing.tsx"
 import { LogIn } from "./pages/logIn.tsx"
 import { APIAccessPrompt } from "./components/apiaccessprompt.tsx"
+import { APIAccessMode } from "../lib/APIAccessInfo.ts"
+import { apiAccessInfo } from "../lib/stores.ts"
 const path = location.pathname
-enum APIAccessMode {
-    None = 0,
-    CORSProxy,
-    Extension,
-}
-let apiAccessInfo: Stateful<{ mode: APIAccessMode }> = $store(
-    {
-        mode: APIAccessMode.None,
-    },
-    { ident: "api-access-info", backing: "localstorage", autosave: "auto" },
-)
 const App: Component = function () {
     return (
         <div>
@@ -23,7 +14,11 @@ const App: Component = function () {
                 // @ts-expect-error because idk how to fix it lol
                 <>
                     {$if(
-                        apiAccessInfo.mode == APIAccessMode.None,
+                        use(
+                            apiAccessInfo,
+                            (apiAccessInfo) =>
+                                apiAccessInfo.mode == APIAccessMode.None,
+                        ),
                         <APIAccessPrompt />,
                         // @ts-expect-error because idk how to fix it lol
                         <>{$if(path == "/login", <LogIn />)}</>,
