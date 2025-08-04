@@ -20,7 +20,7 @@ const App: Component = function () {
                                 apiAccessInfo.mode == APIAccessMode.None,
                         ),
                         <APIAccessPrompt />,
-                        // @ts-expect-error because idk how to fix it lol
+                        // @ts-expect-error because, again, idk how to fix it lol
                         <>{$if(path == "/login", <LogIn />)}</>,
                     )}
                 </>,
