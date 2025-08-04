@@ -13,13 +13,14 @@ export const APIAccessPrompt: Component = function () {
             </p>
             <div>
                 <button
+                    disabled
                     on:click={() => {
                         alert(
                             "Sorry, this doesn't work yet. Please use an extension instead.",
                         )
                     }}
                 >
-                    Use
+                    Coming Soon
                 </button>
                 <label for="api-access-forwarding-server">
                     Forwarding server (send requests to a different server that
