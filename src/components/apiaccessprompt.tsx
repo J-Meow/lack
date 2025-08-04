@@ -22,11 +22,9 @@ export const APIAccessPrompt: Component = function () {
                 >
                     Coming Soon
                 </button>
-                <label for="api-access-forwarding-server">
-                    Forwarding server (send requests to a different server that
-                    forwards them to Slack's API to get around blocking, only
-                    use servers you trust)
-                </label>
+                Forwarding server (send requests to a different server that
+                forwards them to Slack's API to get around blocking, only use
+                servers you trust)
             </div>
             <div>
                 <button
@@ -39,10 +37,8 @@ export const APIAccessPrompt: Component = function () {
                 >
                     Use
                 </button>
-                <label for="api-access-extension">
-                    Browser Extension (removes Slack's system to block Lack from
-                    accessing its API so no server is necessary)
-                </label>
+                Browser Extension (removes Slack's system to block Lack from
+                accessing its API so no server is necessary)
             </div>
         </div>
     )
